@@ -1,14 +1,10 @@
-"use client"
-import React, { useActionState } from "react";
-import { Form, Section, Title, TitleWrapper, Wrapper } from "./style";
+import React from "react";
+import { Form, Section,  Title, TitleWrapper, Wrapper } from "./style";
 import AuthInput from "@/components/InputField/AuthInput/AuthInput";
 import AuthButton from "@/components/Button/AuthButton/AuthButton";
 import SocialButton from "@/components/SocialButton/SocialButton";
-import { createAccount } from "./action";
 
 const SignupPage = () => {
-  const [state, action] = useActionState(createAccount, null);
-  console.log('state', state)
   return (
     <Wrapper>
       <Section>
@@ -16,7 +12,7 @@ const SignupPage = () => {
           <Title>Hello!</Title>
           <Title>Fill in the form below to join!</Title>
         </TitleWrapper>
-        <Form action={action}>
+        <Form>
           {signupInputArr.map(({ name, placeholder, type }, idx) => (
             <AuthInput
               key={idx}
@@ -27,7 +23,7 @@ const SignupPage = () => {
           ))}
           <AuthButton text="Create Account" />
         </Form>
-        <SocialButton />
+        <SocialButton/>
       </Section>
     </Wrapper>
   );

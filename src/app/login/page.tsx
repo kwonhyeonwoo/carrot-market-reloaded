@@ -4,10 +4,10 @@ import AuthInput from '@/components/InputField/AuthInput/AuthInput';
 import AuthButton from '@/components/Button/AuthButton/AuthButton';
 import SocialButton from '@/components/SocialButton/SocialButton';
 import { useActionState } from 'react';
-import { handleSubmit } from './action';
+import { loginSubmit } from './action';
 
 const Page = () => {
-    const [state, action] = useActionState(handleSubmit, null);
+    const [state, action] = useActionState(loginSubmit, null);
     console.log('state', state)
     return (
         <Wrapper>
