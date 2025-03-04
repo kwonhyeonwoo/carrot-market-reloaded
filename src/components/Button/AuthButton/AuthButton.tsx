@@ -1,13 +1,15 @@
+'use client'
 import React from 'react'
 import { AuthBtn } from './style';
-interface Props{
-    text:string;
-    isLoading:boolean;
+import { useFormStatus } from 'react-dom';
+interface Props {
+  text: string;
 }
 
-const AuthButton = ({text,isLoading}:Props) => {
+const AuthButton = ({ text }: Props) => {
+  const { pending } = useFormStatus();
   return (
-    <AuthBtn>{isLoading ? "":text}</AuthBtn>
+    <AuthBtn disabled={pending}>{pending ? "로딩중..." : text}</AuthBtn>
   )
 }
 
