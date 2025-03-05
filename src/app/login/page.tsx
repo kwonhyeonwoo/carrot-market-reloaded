@@ -5,10 +5,13 @@ import AuthButton from '@/components/Button/AuthButton/AuthButton';
 import SocialButton from '@/components/SocialButton/SocialButton';
 import { useActionState } from 'react';
 import { loginSubmit } from './action';
+import { getServerSession } from "next-auth";
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
-const Page = () => {
+const Page =async () => {
     const [state, action] = useActionState(loginSubmit, null);
-    console.log('state', state)
+    //   const loginData = await getServerSession(authOptions);
+    // console.log("loginData", loginData);
     return (
         <Wrapper>
             <Section>

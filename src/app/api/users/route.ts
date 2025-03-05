@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 
-export async function POST(request: NextRequest) {
-    console.log(request.body);
+export async function GET(request: NextRequest) {
+    console.log('users');
     return Response.json({
         ok: true,
     });

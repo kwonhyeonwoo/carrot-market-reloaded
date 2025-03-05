@@ -1,10 +1,16 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
+import { signIn } from "next-auth/react";
+
 import { Wrapper } from './style';
  const SocialButton = () => {
+  const handleLogin = ()=>{
+    signIn();
+  }
   return (
     <Wrapper>
-      <Link href="/">
+      <Link className="social-btn" href="/">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="white"
@@ -21,7 +27,7 @@ import { Wrapper } from './style';
         </svg>
         <span>Contiue with SMS</span>
       </Link>
-      <Link href="/">
+      <button className="social-btn" onClick={handleLogin}>
         <svg
           className="size-6"
           viewBox="0 0 15 15"
@@ -36,7 +42,7 @@ import { Wrapper } from './style';
           ></path>
         </svg>
         <span>Contiue with Github</span>
-      </Link>
+      </button>
     </Wrapper>
   );
 };
